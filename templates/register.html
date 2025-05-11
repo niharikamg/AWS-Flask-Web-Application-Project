@@ -1,0 +1,43 @@
+<!-- 
+     Name: Niharika MG
+-->
+
+{% extends 'layout.html' %}
+
+{% block content %}
+    <h1>Register</h1>
+
+    <form method="post"
+          action="{{ url_for('register') }}"
+          enctype="multipart/form-data">
+
+        <p>Username:
+           <input type="text" name="username" required>
+        </p>
+
+        <p>Password:
+           <input type="password" name="password" required autocomplete="off">
+        </p>
+
+        <p>First&nbsp;Name:
+           <input type="text" name="firstname" required>
+        </p>
+
+        <p>Last&nbsp;Name:
+           <input type="text" name="lastname" required>
+        </p>
+
+        <p>Email:
+           <input type="email" name="email" required>
+        </p>
+
+        <p>File for Word Count&nbsp;(optional):
+           <input type="file" name="file" accept=".txt">
+        </p>
+
+        <input type="submit" value="Register">
+    </form>
+
+    <br>
+    <a href="{{ url_for('login') }}">Already registered? Log in</a>
+{% endblock %}

@@ -1,0 +1,32 @@
+<!-- 
+     Name: Niharika MG
+-->
+
+{% extends 'layout.html' %}
+
+{% block content %}
+    <h1>Success!</h1>
+    <h3>Your details</h3>
+
+    <p><strong>First Name:</strong> {{ user[3] }}</p>
+    <p><strong>Last Name:</strong>  {{ user[4] }}</p>
+    <p><strong>Email:</strong>      {{ user[5] }}</p>
+
+    <hr>
+
+    {# ――― Extra‑credit section ――― #}
+    {% if session.word_count %}
+        <p><strong>Uploaded file:</strong> {{ session.uploaded_file }}  
+        — word count: {{ session.word_count }}</p>
+
+        <!-- Adjust the path below if you’ve aliased /uploads/ in Apache -->
+        <a href="{{ url_for('static', filename='../uploads/' + session.uploaded_file) }}">
+            Download File
+        </a>
+    {% else %}
+        <p>No file uploaded.</p>
+    {% endif %}
+
+    <br><br>
+    <a href="{{ url_for('logout') }}">Sign Out</a>
+{% endblock %}
